@@ -62,12 +62,11 @@ section{position:relative;z-index:1;padding-block:var(--sect)}
 .nav{position:fixed;top:0;left:0;right:0;z-index:60;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:border-color .3s}
 .nav.stuck{border-bottom-color:var(--edge)}
 .nav-in{display:flex;align-items:center;gap:18px;min-height:70px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0;flex-shrink:1}
 .brand-logo{object-fit:contain;flex:none;transition:opacity .3s}
 .brand:hover .brand-logo{opacity:.8}
-.brand b{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.02em}
+.brand b{font-family:var(--display);font-weight:700;font-size:clamp(13px,4vw,17px);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .brand b span{color:var(--fg-3);font-weight:400}
-@media (max-width:560px){.brand b{display:none}}
 .nav-links{margin-left:auto;display:flex;gap:4px;align-items:center}
 .nav-links a{font-size:14px;color:var(--fg-2);text-decoration:none;padding:8px 12px;border-radius:9px;transition:color .2s,background .2s}
 .nav-links a:hover{color:var(--fg);background:var(--glass-2)}
