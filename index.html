@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="gold">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinley Norbu — IT Student &amp; Web Developer</title>
+<meta name="description" content="Information Technology student and aspiring web developer from Bhutan. Projects, learning journey, and digital garden.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="ambient" aria-hidden="true">
+  <div class="grid"></div><div class="orb o1"></div><div class="orb o2"></div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="images/profile/logo.png" width="30" height="30" alt="Thinley Norbu logo">
+      <b>Thinley's<span> Portfolio</span></b>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#top">Home</a><a href="#about">About</a><a href="#projects">Projects</a>
+      <a href="#learning">Learning</a><a href="#skills">Skills</a><a href="#garden">Garden</a>
+      <a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-tools">
+      <button class="icon-btn" id="theme" aria-label="Switch theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="drawer" id="drawer"><div id="drawerLinks"></div></div>
+</nav>
+
+<main id="top">
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><i aria-hidden="true"></i> Currently learning &amp; building</span>
+      <h1>Kuzu Zangpo la, </h1>
+      <h1>I'm Thinley Norbu </h1>
+      <p class="role">Gyalpozhing College of Information Technology Student &amp; Aspiring Web Developer</p>
+      <p class="intro">Passionate about turning ideas into useful digital experiences. I learn by building websites, applications, and technology solutions that solve real-world problems.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">View My Work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#learning">Explore My Learning
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V6a2 2 0 012-2h6v15H6a2 2 0 00-2 2zM20 19V6a2 2 0 00-2-2h-6v15h6a2 2 0 012 2z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="glass term">
+      <div class="term-bar"><b></b><b></b><b></b><span>~/thinley/portfolio</span></div>
+      <div class="term-body">
+<div class="tc">// how I work</div>
+<div><span class="tk">const</span> <span class="tp">thinley</span> = {</div>
+<div>  location: <span class="ts">"Bhutan"</span>,</div>
+<div>  studying: <span class="ts">"Information Technology"</span>,</div>
+<div>  stack: [<span class="ts">"React"</span>, <span class="ts">"Go"</span>, <span class="ts">"Postgres"</span>],</div>
+<div>  building: <span class="ts">"BhutanCare"</span>,</div>
+<div>  motto: <span class="ts">"I learn by building."</span></div>
+<div>};<span class="caret" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block:0 var(--sect)">
+  <div class="wrap"><div class="stats rv" id="stats"></div></div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2 class="sect-title">A little about me</h2>
+    <div class="about rv">
+      <figure class="glass crest-panel" style="margin:0">
+        <img id="crestFull" src="images/profile/crest.png" alt="Thinley Norbu">
+      </figure>
+      <div>
+        <p>I'm an IT student from Gyalpozhing College of Information Technology,Bachelor Degree in Computer Scirnce (AI & Full Stack)  who learns best by building. Rather than working through tutorials in isolation, I pick a problem I actually run into — a clunky booking process, a canteen queue, a dataset nobody has looked at — and build my way through it.</p>
+        <p>Along the way I've picked up frontend development, backend services, database design and UI/UX. I'm interested in what technology can do for Bhutanese communities specifically, and in eventually building products of my own.</p>
+        <div class="tags">
+          <span class="tag">Problem solving</span><span class="tag">Web development</span>
+          <span class="tag">UI/UX</span><span class="tag">Backend</span><span class="tag">Entrepreneurship</span>
+        </div>
+        <ol class="tl" id="timeline"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Work</p>
+    <h2 class="sect-title">Featured projects</h2>
+    <p class="sect-sub">Things I've built to solve problems I actually ran into. Each one taught me something I couldn't have learned from a tutorial.</p>
+    <div class="chips" id="projFilters" role="group" aria-label="Filter projects"></div>
+    <div class="cards" id="projectGrid"></div>
+  </div>
+</section>
+
+<!-- ══ STACK ══ -->
+<section id="stack">
+  <div class="wrap">
+    <p class="eyebrow">Toolkit</p>
+    <h2 class="sect-title">Tech stack</h2>
+    <p class="sect-sub">Hover any technology to see where I've used it and what I got out of it.</p>
+    <div class="stack-groups rv" id="stackGroups"></div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Progress</p>
+    <h2 class="sect-title">Where I'm at</h2>
+    <p class="sect-sub">An honest self assessment, updated as I go. Ten segments, not a percentage bar pretending to be precise.</p>
+    <div class="skills rv" id="skillGrid"></div>
+  </div>
+</section>
+
+<!-- ══ LEARNING ══ -->
+<section id="learning">
+  <div class="wrap">
+    <p class="eyebrow">Journal</p>
+    <h2 class="sect-title">My learning journey</h2>
+    <p class="sect-sub">What I learned, how I applied it, and what I want to learn next. This is the part of the site I update most often.</p>
+    <div class="chips" id="logFilters" role="group" aria-label="Filter learning entries"></div>
+    <div class="logs" id="logs"></div>
+  </div>
+</section>
+
+<!-- ══ GARDEN ══ -->
+<section id="garden">
+  <div class="wrap">
+    <p class="eyebrow">Archive</p>
+    <h2 class="sect-title">My digital garden</h2>
+    <p class="sect-sub">Notes, commands, snippets and lessons I keep coming back to. Search it and  that's what it's for.</p>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="gardenSearch" placeholder="Search notes, commands, tags…" aria-label="Search the digital garden">
+    </label>
+    <div class="chips" id="gardenFilters" role="group" aria-label="Filter notes"></div>
+    <div class="notes" id="notes"></div>
+  </div>
+</section>
+
+<!-- ══ CERTS ══ -->
+<section id="certificates">
+  <div class="wrap">
+    <p class="eyebrow">Credentials</p>
+    <h2 class="sect-title">Certificates &amp; achievements</h2>
+    <div class="chips" id="certFilters" role="group" aria-label="Filter certificates"></div>
+    <div class="certs" id="certs"></div>
+  </div>
+</section>
+
+<!-- ══ ROADMAP ══ -->
+<section id="roadmap">
+  <div class="wrap">
+    <p class="eyebrow">Direction</p>
+    <h2 class="sect-title">Developer roadmap</h2>
+    <p class="sect-sub">Where I've been, where I am, and where this is going.</p>
+    <div class="road rv" id="road"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's build something together.</h2>
+      <p style="color:var(--fg-2);margin:0">Open to internships, freelance work, and collaborating on anything useful. I reply to everything.</p>
+      <div class="reach">
+        <a href="mailto:you@example.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          nthinley817@gmail.com</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+          github.com/yourusername</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 11-4 0 2 2 0 014 0zM3.2 21.5h3.5V9.2H3.2v12.3zM9.4 9.2h3.35v1.68h.05c.47-.84 1.6-1.73 3.3-1.73 3.53 0 4.18 2.2 4.18 5.06v6.29h-3.5v-5.58c0-1.33-.03-3.04-1.9-3.04-1.9 0-2.19 1.45-2.19 2.95v5.67H9.4V9.2z"/></svg>
+          linkedin.com/in/thinley</a>
+      </div>
+    </div>
+
+    <div class="glass form">
+      <div class="field"><label for="cname">Name</label><input id="cname" type="text" placeholder="Your name"></div>
+      <div class="field"><label for="cmail">Email</label><input id="cmail" type="email" placeholder="you@email.com"></div>
+      <div class="field"><label for="cmsg">Message</label><textarea id="cmsg" placeholder="What are you working on?"></textarea></div>
+      <button class="btn btn-primary" id="send">Send Message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      <p class="form-note" id="formNote">Opens your mail app  connect a backend to send directly.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span class="l">
+      <img class="brand-logo" src="images/profile/logo.png" width="20" height="20" alt="" aria-hidden="true">
+      © 2026 Thinley Norbu · Built in Bhutan
+    </span>
+    <span class="r">
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#">Résumé</a>
+    </span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
