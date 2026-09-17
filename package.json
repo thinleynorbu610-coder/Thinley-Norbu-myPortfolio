@@ -1,0 +1,7 @@
+{
+  "name": "myapp",
+  "private": true,
+  "scripts": {
+    "dev": "start http://localhost:3000 && npx serve . -p 3000"
+  }
+}
