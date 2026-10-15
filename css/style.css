@@ -3,7 +3,7 @@
   --bg:#080A0D; --bg-2:#0C0F14;
   --glass:rgba(255,255,255,.035); --glass-2:rgba(255,255,255,.055);
   --edge:rgba(255,255,255,.09); --edge-hi:rgba(255,255,255,.16);
-  --fg:#E9EEF4; --fg-2:#A2AEBE; --fg-3:#6B7787;
+  --fg:#E9EEF4; --fg-2:#A2AEBE; --fg-3:#7A8696;
 
   /* gold accent — matches the crest */
   --mint:#E8CF8F; --cyan:#D4AF37; --blue:#C6CCD3;
@@ -19,7 +19,7 @@ html[data-theme="light"]{
   --bg:#F6F8FA; --bg-2:#FFFFFF;
   --glass:rgba(9,12,17,.028); --glass-2:rgba(9,12,17,.05);
   --edge:rgba(9,12,17,.1); --edge-hi:rgba(9,12,17,.2);
-  --fg:#0D1117; --fg-2:#4A5568; --fg-3:#7B8794;
+  --fg:#0D1117; --fg-2:#4A5568; --fg-3:#5E6A77;
   --mint:#8A6A18; --cyan:#A07C22; --blue:#5F6670;
   --glow-mint:rgba(160,124,34,.10); --glow-cyan:rgba(138,106,24,.07);
 }
@@ -150,7 +150,7 @@ section{position:relative;z-index:1;padding-block:var(--sect)}
 .card{display:flex;flex-direction:column;overflow:hidden;padding:0;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
 .card:hover{border-color:var(--edge-hi);transform:translateY(-4px);box-shadow:0 24px 50px -34px rgba(0,0,0,.85)}
 @media (prefers-reduced-motion:reduce){.card:hover{transform:none}}
-.card[hidden],.log[hidden],.note[hidden],.cert[hidden]{display:none}
+[hidden]{display:none!important}
 .shot{aspect-ratio:16/9;position:relative;overflow:hidden;border-bottom:1px solid var(--edge);background:linear-gradient(140deg,var(--glass-2),transparent 70%);display:grid;place-items:center}
 .shot .ph,.cert-img .ph{font-family:var(--mono);font-size:11px;color:var(--fg-3);letter-spacing:.05em;text-align:center;padding:0 16px}
 .state{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:100px;background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(8px);border:1px solid var(--edge)}

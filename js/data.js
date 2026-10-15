@@ -18,8 +18,19 @@
         replace that file (keep the same name) to swap the
         crest for a real photo; no code change needed.
    Leave an "image" field as null to keep the placeholder.
+
+   Links: any link left as null or "#" is hidden automatically,
+   so nothing on the page points nowhere. Fill one in and it
+   appears.
    ══════════════════════════════════════════════════════════ */
 const DATA = {
+  /* contact details — used by the contact section, footer and form */
+  contact: {
+    email:"nthinley817@gmail.com",
+    github:"https://github.com/nthinley817-sys",
+    linkedin:null,  // e.g. "https://www.linkedin.com/in/your-profile"
+    resume:null     // e.g. "files/resume.pdf"
+  },
   stats: [
     {n:"12+",l:"Projects Built"},{n:"15+",l:"Technologies Learned"},
     {n:"8+",l:"Certificates"},{n:"3",l:"Currently Learning"}

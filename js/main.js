@@ -6,6 +6,8 @@
 const $ = s => document.querySelector(s);
 const $$ = s => Array.prototype.slice.call(document.querySelectorAll(s));
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* a link is "real" if it's set and isn't a bare "#" placeholder */
+const real = u => !!u && u !== '#';
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>';
 
 /* ══════════════════════════════════════════════════════════
@@ -100,16 +102,16 @@ $('#timeline').innerHTML = DATA.timeline.map(t =>
 function renderProjects(){
   $('#projectGrid').innerHTML = DATA.projects.map(p => {
     const links = [
-      p.github?`<a class="mini" href="${esc(p.github)}">GitHub ${arrow}</a>`:'',
-      p.demo?`<a class="mini" href="${esc(p.demo)}">Live Demo ${arrow}</a>`:'',
-      p.details?`<a class="mini" href="${esc(p.details)}">Details ${arrow}</a>`:''
+      real(p.github)?`<a class="mini" href="${esc(p.github)}" target="_blank" rel="noopener">GitHub ${arrow}</a>`:'',
+      real(p.demo)?`<a class="mini" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo ${arrow}</a>`:'',
+      real(p.details)?`<a class="mini" href="${esc(p.details)}" target="_blank" rel="noopener">Details ${arrow}</a>`:''
     ].join('');
     const slot = uploadSlot('proj:'+slug(p.title), p.image, p.title, 'Add screenshot →');
     return `<article class="glass card" data-cat="${esc(p.category)}">
     <div class="shot"${slot.attr}>${slot.html}<span class="state ${esc(p.status)}">${esc(p.statusLabel)}</span></div>
     <div class="card-body"><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>
     <div class="stack">${p.tech.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
-    <div class="card-links">${links}</div></div></article>`;
+    ${links?`<div class="card-links">${links}</div>`:''}</div></article>`;
   }).join('');
 }
 renderProjects();
@@ -196,7 +198,7 @@ function renderCerts(){
   <div class="cert-img"${slot.attr}>${slot.html}</div>
   <div class="cert-body"><h4>${esc(c.name)}</h4><div class="org">${esc(c.org)} · ${esc(c.date)}</div>
   <div class="stack">${c.skills.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
-  <a class="mini" href="#">View Certificate ${arrow}</a></div></article>`;
+  ${real(c.link)?`<a class="mini" href="${esc(c.link)}" target="_blank" rel="noopener">View Certificate ${arrow}</a>`:''}</div></article>`;
   }).join('');
 }
 renderCerts();
@@ -206,6 +208,25 @@ wireImageUploads('#certs', () => { renderCerts(); reapplyFilter('#certFilters','
 const roadLabel = {done:'Completed',now:'In progress',next:'Ahead'};
 $('#road').innerHTML = DATA.road.map(r=>
   `<div class="glass node ${esc(r.state)}"><span class="st">${roadLabel[r.state]}</span><div class="nm">${esc(r.name)}</div></div>`).join('');
+
+/* contact links — filled from DATA.contact; unset ones stay hidden */
+const C = DATA.contact || {};
+function setLink(id, url){
+  const a = document.getElementById(id);
+  if (!a) return;
+  if (real(url)) { a.href = url; a.hidden = false; } else { a.hidden = true; }
+}
+if (real(C.email)) {
+  $('#reachEmail').href = 'mailto:' + C.email;
+  $('#reachEmail span').textContent = C.email;
+}
+setLink('reachGithub', C.github);   setLink('footGithub', C.github);
+setLink('reachLinkedin', C.linkedin); setLink('footLinkedin', C.linkedin);
+setLink('footResume', C.resume);
+const ghUser = real(C.github) && C.github.replace(/\/+$/,'').split('/').pop();
+if (ghUser) $('#reachGithub span').textContent = 'github.com/' + ghUser;
+const liUser = real(C.linkedin) && C.linkedin.replace(/\/+$/,'').split('/').pop();
+if (liUser) $('#reachLinkedin span').textContent = 'linkedin.com/in/' + liUser;
 
 /* ══════════════ BEHAVIOUR ══════════════ */
 const nav = $('#nav'), links = $('#navLinks'), burger = $('#burger'),
@@ -240,17 +261,21 @@ const io2 = new IntersectionObserver(entries=>{
 }, {rootMargin:'-20% 0px -70% 0px'});
 ids.map(i=>document.getElementById(i)).filter(Boolean).forEach(s=>io2.observe(s));
 
+/* theme — remembered per browser; storage failures just mean it isn't remembered */
+try { const t = localStorage.getItem('portfolioTheme'); if (t==='light'||t==='dark') document.documentElement.dataset.theme = t; } catch(e){}
 $('#theme').addEventListener('click', ()=>{
   const el = document.documentElement;
   el.dataset.theme = el.dataset.theme==='dark' ? 'light' : 'dark';
+  try { localStorage.setItem('portfolioTheme', el.dataset.theme); } catch(e){}
 });
 
 $('#send').addEventListener('click', ()=>{
   const n=$('#cname').value.trim(), m=$('#cmail').value.trim(), msg=$('#cmsg').value.trim();
   const note=$('#formNote');
   if(!n||!m||!msg){ note.textContent='Please fill in all three fields.'; note.style.color='#E06C6C'; return; }
+  if(!$('#cmail').checkValidity()){ note.textContent='That email address doesn\'t look right.'; note.style.color='#E06C6C'; return; }
   note.textContent='Opening your mail app…'; note.style.color='var(--mint)';
-  location.href = `mailto:you@example.com?subject=${encodeURIComponent('Portfolio message from '+n)}&body=${encodeURIComponent(msg+'\n\n— '+n+' ('+m+')')}`;
+  location.href = `mailto:${C.email}?subject=${encodeURIComponent('Portfolio message from '+n)}&body=${encodeURIComponent(msg+'\n\n— '+n+' ('+m+')')}`;
 });
 
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
