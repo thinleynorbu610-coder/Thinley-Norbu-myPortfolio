@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myportfolio-9xkt.onrender.com/sitemap.xml
+Sitemap: https://thinley-norbu-myportfolio.onrender.com/sitemap.xml
